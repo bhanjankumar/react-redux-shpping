@@ -1,1 +1,0 @@
-export const NAV_TO_CHECKOUT = 'NAV_TO_CHECKOUT';
