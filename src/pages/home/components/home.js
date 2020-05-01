@@ -28,6 +28,7 @@ class HomeComponent extends PureComponent{
   			<div className="row">
   				<div className="col-md-3">
   					<div className="control-box p-3 filter">
+                    <div className="filter-mobile">
   						<h2>Filter</h2>
                           <InputRange
                             maxValue={90000}
@@ -37,6 +38,7 @@ class HomeComponent extends PureComponent{
                             <div className="applyBtn">
                                 <button onClick={()=>this.props.applyFilter(productData,this.state.value)}>Apply</button>
                             </div>
+                        </div>
   					</div>
   				</div>
   				<div className="col-md-9">
