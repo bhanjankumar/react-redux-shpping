@@ -103,7 +103,7 @@ const getCollectAddCart = (data) => {
 const getSearchFilter = (filerData,searchData) =>{
     let searchFiltData = null;
     searchFiltData = filerData.filter(data =>{
-        if(data.name.indexOf(searchData)!==-1){
+        if(data.name.toLowerCase().indexOf(searchData.toLowerCase())!==-1){
          return true
         } 
     })
