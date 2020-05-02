@@ -10,7 +10,8 @@ const initialState = {
                         actual: 13999,
                         display: 22500
         },
-                    discount: 37
+                    discount: 37,
+                    quantity:1
     },
     {
                     id:2,
@@ -20,7 +21,8 @@ const initialState = {
                         actual: 35999,
                         display: 66900
         },
-                    discount: 46
+                    discount: 46,
+                    quantity:1
     },
     {
                     id:3,
@@ -30,7 +32,8 @@ const initialState = {
                         actual: 84999,
                         display: 133900
         },
-                    discount: 36
+                    discount: 36,
+                    quantity:1
     },
     {
                     id:4,
@@ -40,7 +43,8 @@ const initialState = {
                         actual: 9999,
                         display: 16999
         },
-                    discount: 41
+                    discount: 41,
+                    quantity:1
     },
     {
                     id:5,
@@ -50,7 +54,8 @@ const initialState = {
                         actual: 39990,
                         display: 79990
         },
-                    discount: 50
+                    discount: 50,
+                    quantity:1
     },
     {
                     id:6,
@@ -60,7 +65,8 @@ const initialState = {
                         actual: 7999,
                         display: 17e3
         },
-                    discount: 52
+                    discount: 52,
+                    quantity:1
     },
     {
                     id:7,
@@ -70,7 +76,8 @@ const initialState = {
                         actual: 55999,
                         display: 199990
         },
-                    discount: 71
+                    discount: 71,
+                    quantity:1
     },
     {
                     id:8,
@@ -80,7 +87,8 @@ const initialState = {
                         actual: 9999,
                         display: 27990
                 },
-                    discount: 64
+                    discount: 64,
+                    quantity:1
     }
 ]
 }
@@ -89,11 +97,16 @@ const getCollectAddCart = (data) => {
     if(data){
         cartData.push(data);
     }
+    cartData = [...new Set(cartData)];
     return cartData;
 }
 const getSearchFilter = (filerData,searchData) =>{
     let searchFiltData = null;
-    searchFiltData = filerData.filter(data => data.name == searchData);
+    searchFiltData = filerData.filter(data =>{
+        if(data.name.indexOf(searchData)!==-1){
+         return true
+        } 
+    })
     return searchFiltData;
 }
 
@@ -120,6 +133,15 @@ const getDiscountFilter = (filerData) =>{
 }
 const getFilterCart = (cartData,productId) => {
     return cartData.filter(data => data.id!=productId);
+}
+const getCheckOutCalc = (productId,totalInput,data) =>{
+    data = data.filter(data => data.quantity!=0);
+    for(let i=0;i<data.length;i++){
+            if(productId==data[i].id){
+            data[i] = Object.assign(data[i],{quantity:totalInput});
+            }
+    }
+    return data;
 }
 
 
@@ -168,6 +190,13 @@ const HomeReducer = (state={...initialState},action) => {
                 ...state,
                 addCartData:getFilterCart(action.data,action.productId)
             }
+            case ActionType.NAV_QUANTITY_INC:
+                return {
+                    ...state,
+                    addCartData:getCheckOutCalc(action.productId,action.totalInput,action.data),
+                    order:'checkoutIncrease'+action.totalInput
+            }
+           
         
         default:
             return state;

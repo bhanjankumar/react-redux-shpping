@@ -14,6 +14,11 @@ class HeaderComponent extends PureComponent{
             <header>
             <nav className="navbar-dark">
                 <div className="searchElement">
+                    <div className="logo">
+                    <a href="javascript:void(0)" onClick={()=>this.props.navToHomePage()}>
+                        <img src="images/logo.svg" />
+                     </a>
+                    </div>
                     <SearchComponent />
                     <CartComponent/>
                 </div>

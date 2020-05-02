@@ -5,3 +5,6 @@ export const addNumData = () => {
         type:ActionTypes.NAV_TO_SUPPORT
     }
 }
+export const navToHomePage = () =>{
+    alert('home')
+}

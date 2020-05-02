@@ -24,18 +24,9 @@ let store = createStore(
 
 ReactDOM.render((
   <Provider store={store}>
-    <Router history={browserHistory} routes={appRoutes(store,'http://localhost:3000/')} />
+    <Router history={browserHistory} routes={appRoutes(store)} />
   </Provider>
 
 ), document.getElementById('root'));
 
-// ReactDOM.render((
-//   <Provider store={store}>
-//     <ConnectedRouter history={history}>
-//       <Switch>
-//         <Route path="/" component={App} />
-//       </Switch>
-//     </ConnectedRouter>
-//   </Provider>
 
-// ), document.getElementById('root'));

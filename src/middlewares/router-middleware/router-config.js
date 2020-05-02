@@ -1,9 +1,10 @@
 
 import * as NavToCart from "../../pages/cart/cart-constant"
+import * as NavToHome from "../../pages/common/header-constant"
 
 const config = {};
-const {baseUrl} = 'http://localhost:3000';
 
 config[NavToCart.NAV_TO_CHECKOUT] = `/checkout`;
+config[NavToHome.NAV_TO_HOME] = `/`;
 
 export default config;

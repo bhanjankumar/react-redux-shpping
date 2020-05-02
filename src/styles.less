@@ -5,7 +5,7 @@
     src: url('./fonts/verdana.ttf') format('ttf');
     }
 body {
-    background-color: #ccc;
+    background-color: #F1F3F6;
     font-family: 'Verdana';
     font-size: 14px;
   }
@@ -45,30 +45,86 @@ body {
 #searchIcon{
     float:right;
 }
-.cartimg{margin:10px 0px;}
-.cartimg img{width:125px;display:inline-block;}
-.cartimg .dataDesc{display:inline-block;margin-left: 20px;}
+.cartimg{margin:10px 0px;width: 35%;
+  float: left;}
+.cartimg img{width:100px;height:90px;float: left;}
+.cartimg .dataDesc{margin-left: 20px;float: left;}
+.cartimg .dataDesc span{display: block;margin-bottom: 10px;}
+.cartimg {
+  margin: 10px 0px;
+  width: 25%;
+  float: left;
+}
+.checout-right {
+  float: left;
+  width: 75%;
+  margin: 25px 0px;
+}
+.counter{
+  display: inline-block;
+  width: 33%;
+}
 .checkoutPage{margin:25px 0px}
-.checkoutPage input{width:40px;}
-.checkoutPage span.roundbtn{    padding: 4px 8px;
-    border: 1px solid #999;
-    border-radius: 20px;}
+.checkoutPage input{width:40px;    border: 1px solid #ccc;
+  padding: 0px 14px;}
+.checkoutPage .roundbtn{
+  padding: 4px 11px;
+  border: 1px solid #999;
+  border-radius: 20px;
+  background-color: #fff; margin: 0px 5px 0px 5px;}
+.check-brder{
+  border: 1px solid #ccc;
+  background-color: #fff;
+  margin-bottom:10px;
+}
+.right-pricedetail{
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+}
+.right-pricedetail h2{
+font-size: 18px;
+border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+}
+.right-pricedetail .total{
+border-top: 1px solid #ccc;
+padding-top: 10px;
+font-weight: 600;
+}
+.right-pricedetail .priceDetInner{
+  padding: 10px 0px
+}
+.right-pricedetail .priceDetInner div{
+  padding: 10px 0px;
+}
 
-.counter{margin:45px 0px 25px;}
 
 * {
     box-sizing: border-box;
   }
-  
+  ::placeholder {
+    color:#fff;
+  }
   /* Style the search field */
+  // .example input[type=text] {
+  //   padding: 10px;
+  //   font-size: 17px;
+  //   border: 1px solid grey;
+  //   float: left;
+  //   width: 80%;
+  //   background: #f1f1f1;
+  // }
   .example input[type=text] {
     padding: 10px;
     font-size: 17px;
-    border: 1px solid grey;
+    border: 0;
     float: left;
     width: 80%;
-    background: #f1f1f1;
-  }
+    background: #2874F0;
+    border-bottom: 2px solid #fff;
+}
   
   /* Style the submit button */
   .example button {
@@ -78,7 +134,7 @@ body {
     background: #2874F0;
     color: white;
     font-size: 17px;
-    border: 1px solid grey;
+    border: none;
     border-left: none; /* Prevent double borders */
     cursor: pointer;
   }
@@ -120,7 +176,68 @@ body {
 .display{font-size:11px;}
 .input-range__slider{background-color: #2874F0 !important;border: 1px solid #2874F0 !important;}
 .input-range__track--active{background: #3f51b5 !important;}
+.mbl-filt{display:none;}
+.mbl-filter{display:flex; border-bottom:1px solid #666;}
+.mbl-filter .sort, .mbl-filter .filter{width: 50%;text-align: center;padding: 15px 0px;}
+.mbl-filter .sort{border-right:1px solid #666;}
+.sorting{display:block;}
+.logo{width: 30px;
+  float: left;
+  padding: 10px 0px;
+  margin-left: 10px;}
+.logo img{width:100%;}
+.remove span{font-weight: 600;}
 
 @media (min-width: 320px) and (max-width: 767px) {
-
+  .example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 0;
+    float: left;
+    width: 60%;
+    background: #2874F0;
+    border-bottom: 2px solid #fff;
+}
+::placeholder {
+  color:#fff;
+}
+.sorting a{
+  font-size: 12px;
+  padding: 5px 2px;
+}
+.bgmobile{width: 100%;
+  height: 185vh;
+  background-color: rgba(0, 0, 0, 0.5);position: absolute;z-index: 99;}
+.sorting,.mbl-sortFilter{display: none;}
+.mbl-filt, .mblshow{display:block;}
+.mbl{position: relative;}
+.mbl-sortFilter{
+  background: #fff;
+  padding: 5px;
+  position: fixed;
+  z-index: 100;
+  width: 91%;
+}
+.seachFilter{
+  width: 60%;
+}
+.discount{font-size:10px;}
+.counter{    margin: 7px 0px;display:block;width:100%;}
+.counter span{margin: 7px 0px;}
+.cartimg {
+  margin: 10px 0px;
+  width: 35%;
+  float: left;
+}
+.checout-right {
+  float: left;
+  width: 60%;
+  margin: 25px 0px;
+}
+}
+@media (min-width: 360px) and (max-width: 767px) {
+  .example input[type=text] {
+    width: 80%;
+  }
+  
 }

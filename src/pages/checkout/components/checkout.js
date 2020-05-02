@@ -1,33 +1,58 @@
 import React,{PureComponent} from 'react';
 
 
-class CheckoutComponent extends PureComponent{
+class CheckoutComponent extends React.Component{
     constructor(){
         super();
         this.sate={
             
         }
     }
-    increase = (e,refData) => {
+    increase = (e,refData,data) => {
         this.refs[refData].value++;
+        let prodData = this.props.addedCartData;
+        for(let i=0;i<prodData.length;i++){
+            if(data.id==prodData[i].id){
+                prodData[i] = Object.assign(prodData[i],{quantity:this.refs[refData].value})
+            }
+        }
+        this.props.cartIncrease(data.id,this.refs[refData].value,prodData);
     }
-    decrease = (e,refData) => {
+    decrease = (e,refData,data) => {
         this.refs[refData].value--;
+        let prodData = this.props.addedCartData;
+        for(let i=0;i<prodData.length;i++){
+            if(data.id==prodData[i].id){
+                prodData[i] = Object.assign(prodData[i],{quantity:this.refs[refData].value})
+            }
+        }
+        this.props.cartIncrease(data.id,this.refs[refData].value,prodData);
     }
     getRightPriceDetail = () => {
         const {addedCartData} = this.props;
-        let totalDisplay  = addedCartData ? addedCartData.reduce((x,y)=>parseFloat(x)+parseFloat(y.price.display),0):null;
-        let totalPriceactual  = addedCartData ? addedCartData.reduce((x,y)=>parseFloat(x)+parseFloat(y.price.actual),0):null;
+        let totalDisplay  = 0;
+        let totalPriceactual  = 0;
+        if(addedCartData){
+        for(let i=0;i<addedCartData.length;i++){
+            totalDisplay += addedCartData[i].price.display*addedCartData[i].quantity;
+            totalPriceactual += addedCartData[i].price.actual*addedCartData[i].quantity;
+        }
+    }
         let totalDiscount = totalDisplay - totalPriceactual;
         let totProd = addedCartData ? addedCartData.length:0;
         return(
-            <div>
+            <div className="right-pricedetail">
                  <h2>Price details</h2>
-                    <div>Price ({totProd} item): {totalDisplay}</div>
+                     <div className="priceDetInner">
+                    <div>Price ({totProd} item): {totalPriceactual}</div>
                     <div>Discount: {totalDiscount}</div>
-                    <div>Total: {totalPriceactual}</div>
+                    </div>
+                    <div className="total">Total: {totalPriceactual}</div>
             </div>
         )
+    }
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps);
     }
   
 
@@ -37,34 +62,30 @@ class CheckoutComponent extends PureComponent{
             <div className="checkoutPage">
                 <div className="container">
   			        <div className="row">
-  				        <div className="col-md-9">
+  				        <div className="col-md-8">
                           {addedCartData && addedCartData.map((data, index) => (
-                          <div className="row">
-                          <div className="col-md-5">
+                          <div className="row check-brder">
                              <div className="cartimg">
                                 <img src={data.image} />
-                                <div className="dataDesc">
-                                    <span >{data.name}</span><br/>
-                                    <span >{data.price.actual}</span>
-                                </div>
                             </div>
-                          </div>
-                          <div className="col-md-2">
+                            <div className="checout-right">
+                            <div className="counter">
+                                  <div><span >{data.name}</span></div>
+                                   <div> <span >{data.price.actual} </span><span className="display"><del>{data.price.display}</del></span><span className="discount">{data.discount}% off</span></div>
+                                </div>
                               <div className="counter">
-                                <span className="roundbtn" onClick={(e)=>this.decrease(this,'cartVal_'+index)}>-</span>
-                                <input type="text" ref={'cartVal_'+index} value="1"  />
-                                <span className="roundbtn" onClick={(e)=>this.increase(this,'cartVal_'+index)}>+</span>
+                                <button className="roundbtn" onClick={(e)=>this.decrease(this,'cartVal_'+index,data,data)}>-</button>
+                                <input type="text" ref={'cartVal_'+index} value={data.quantity?data.quantity:1}  />
+                                <button className="roundbtn" onClick={(e)=>this.increase(this,'cartVal_'+index,data)}>+</button>
                               </div>
-                           </div>
-                          <div className="col-md-2">
-                          <div className="counter">
-                              <span onClick={()=>this.props.removeCart(addedCartData,data.id)}>Remove</span>
-                              </div>
-                              </div>
-                          </div>
+                                <div className="counter remove">
+                                    <span onClick={()=>this.props.removeCart(addedCartData,data.id)}>Remove</span>
+                               </div>
+                               </div>
+                            </div>
                           ))}
                        </div>
-                       <div className="col-md-3">
+                       <div className="col-md-4">
                            {this.getRightPriceDetail()}
                              
                         </div>

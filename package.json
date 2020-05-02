@@ -1,11 +1,12 @@
 {
-  "name": "react-redux-shopping-cart",
+  "name": "react-redux-shpping",
   "homepage": "https://bhanjankumar.github.io/react-redux-shpping",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
     "cross-env": "^5.1.4",
     "css-loader": "^3.5.3",
+    "gh-pages": "^2.2.0",
     "less": "^3.11.1",
     "less-loader": "^6.0.0",
     "react-scripts": "1.1.1",
@@ -41,7 +42,7 @@
     "test": "cross-env PORT=3000 react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "dev:build": "lessc src/styles.less src/styles.css",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
