@@ -10,7 +10,7 @@ class HomeComponent extends PureComponent{
             products:null,
             value: { min: 4000, max: 90000 },
             classEnable:false,
-            sortPop:false,
+            sortPop:true,
             filterPop:false,
             filterSortData:'priceHL'
         }
@@ -70,6 +70,13 @@ class HomeComponent extends PureComponent{
             classEnable:false
         })
     }
+    onCancel(){
+        this.setState({
+            classEnable:false,
+            sortPop:false,
+            filterPop:false
+        })
+    }
 
     render(){
         const {productData} = this.props;
@@ -97,26 +104,39 @@ class HomeComponent extends PureComponent{
                             minValue={4000}
                             value={this.state.value}
                             onChange={value => this.setState({ value })} />
+                        <div className="btn-list">
+                            <div className="cancelBtn mblshow">
+                            <button onClick={()=>this.onCancel()}>Cancel</button>
+                            </div>
                             <div className="applyBtn">
                                 <button onClick={()=>this.applyFilter(productData,this.state.value)}>Apply</button>
                             </div>
+                        </div>
                     </div>
                     }
                     {this.state.filterPop &&
                     <div className="filter-pop">
                         <h3>Sort Option</h3>
-                        <div>
-                        <input type="radio" name="priceHL"  value="priceHL" onClick={()=>this.filterOption('priceHL')} />Price -- High Low
+                        <label className="radio">Price -- High Low
+                        <input type="radio" name="price"  value="priceHL" onClick={()=>this.filterOption('priceHL')} />
+                        <span class="checkmark"></span>
+                        </label>
+                        <label className="radio">Price -- Low High
+                        <input type="radio" name="price"  value="priceLH" onClick={()=>this.filterOption('priceLH')} />
+                        <span class="checkmark"></span>
+                        </label>
+                        <label className="radio">Discount
+                        <input type="radio" name="price" value="discount" onClick={()=>this.filterOption('discount')} />
+                        <span class="checkmark"></span>
+                        </label>
+                        <div className="btn-list">
+                            <div className="cancelBtn">
+                            <button onClick={()=>this.onCancel()}>Cancel</button>
+                            </div>
+                            <div className="applyBtn">
+                                    <button onClick={()=>this.applyFilterPop(productData)}>Apply</button>
+                            </div>
                         </div>
-                        <div>
-                        <input type="radio" name="priceLH"  value="priceLH" onClick={()=>this.filterOption('priceLH')} />Price -- Low High
-                        </div>
-                        <div>
-                        <input type="radio" name="discount" value="discount" onClick={()=>this.filterOption('discount')} />Discount
-                        </div>
-                        <div className="applyBtn">
-                                <button onClick={()=>this.applyFilterPop(productData)}>Apply</button>
-                         </div>
                     </div>
                     }
                  </div>

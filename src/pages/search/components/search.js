@@ -16,7 +16,7 @@ class SearchComponent extends PureComponent{
         })
     }
     enterSearch(event){
-        if(event.key === 'Enter'){
+        if(event.key === 'Enter' && this.state.searchData){
             this.props.searchGetProduct(this.props.productData,this.state.searchData)
         }
     }

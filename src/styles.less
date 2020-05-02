@@ -24,7 +24,6 @@ body {
     color: #fff;
 }
 .filter .applyBtn{
-    margin-top: 35px;
     text-align: center;
 }
 .filter h2{    
@@ -187,7 +186,76 @@ font-weight: 600;
   margin-left: 10px;}
 .logo img{width:100%;}
 .remove span{font-weight: 600;}
+.mbl{
+  border-right: 1px solid #d1d1d1;
+}
+.mblshow{
+  display: none;
+}
+//radio button 
 
+.radio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
 @media (min-width: 320px) and (max-width: 767px) {
   .example input[type=text] {
     padding: 10px;
@@ -233,6 +301,36 @@ font-weight: 600;
   float: left;
   width: 60%;
   margin: 25px 0px;
+}
+.mbl{
+  border:0;
+}
+.btn-list{
+  display: flex;
+  margin-top: 45px;
+  border-top: 1px solid #d1d1d1;
+}
+.cancelBtn{
+  width: 50%;
+  border-right: 1px solid #d1d1d1;
+}
+.cancelBtn button, .filter .applyBtn button{ background-color: transparent;
+  padding: 5px 15px;
+  color: #2874F0;
+  border: 0;font-weight:600;}
+  
+.filter .applyBtn{
+  text-align: center;
+  width: 50%;
+}
+.filter-pop h3{
+  font-size:18px;
+}
+.filter-pop .radio{
+  font-size: 16px;
+}
+.mblshow{
+  display: block;
 }
 }
 @media (min-width: 360px) and (max-width: 767px) {
