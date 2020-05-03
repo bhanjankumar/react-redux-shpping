@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import React from 'react';
-import {Router,Route,IndexRoute,browserHistory} from 'react-router';
+import {Router,browserHistory} from 'react-router';
 import thunk from 'redux-thunk';
 import {createStore,applyMiddleware,compose} from 'redux';
 import mainReducer from './main-reducer';

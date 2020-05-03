@@ -5,9 +5,6 @@ import homePage from './pages/home/home-container';
 import checkoutPage from './/pages/checkout/checkout-container'
 
 const MainRouter = (state) =>{
-    const isAuthenticate = () =>{
-        return true;
-    }
 
     return(
         <Router>

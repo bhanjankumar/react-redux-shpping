@@ -1,7 +1,7 @@
 import React,{PureComponent} from 'react';
 
 
-class CheckoutComponent extends React.Component{
+class CheckoutComponent extends PureComponent{
     constructor(){
         super();
         this.sate={

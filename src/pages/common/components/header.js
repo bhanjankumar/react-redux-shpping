@@ -4,9 +4,6 @@ import CartComponent from '../../cart/cart-container';
 
 
 class HeaderComponent extends PureComponent{
-    constructor(){
-        super();
-    }
 
     render(){
         return(

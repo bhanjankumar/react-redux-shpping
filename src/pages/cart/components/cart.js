@@ -2,9 +2,6 @@ import React,{PureComponent} from 'react';
 
 
 class CartComponent extends PureComponent{
-    constructor(){
-        super();
-    }
 
     render(){
         return(

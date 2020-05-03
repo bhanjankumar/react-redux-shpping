@@ -2,10 +2,7 @@ import React,{PureComponent} from 'react';
 
 
 class SortComponent extends PureComponent{
-    constructor(props){
-        super(props);
-    }
-   
+    
     render(){
         const {productData} = this.props;
         return(
