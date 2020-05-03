@@ -1,4 +1,4 @@
-import * as ActionType from './search-constant';
+
 
 const initialState = {
 

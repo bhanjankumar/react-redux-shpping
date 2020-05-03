@@ -12,3 +12,12 @@ export const removeCart = (data,productId) => {
         productId:productId
     }
 }
+
+export const cartIncrease = (productId,totalInput,data) =>{
+    return {
+        type:ActionTypes.NAV_QUANTITY_INC,
+        totalInput:totalInput,
+        productId:productId,
+        data:data
+    }
+}

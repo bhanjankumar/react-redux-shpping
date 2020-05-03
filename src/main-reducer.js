@@ -13,7 +13,7 @@ const combineReducer = combineReducers({
 });
 
 const rootReducer = (state,action) => {
-    if(action.type=='RESET_APP_STORE'){
+    if(action.type==='RESET_APP_STORE'){
         state = undefined;
     }
     return combineReducer(state,action);

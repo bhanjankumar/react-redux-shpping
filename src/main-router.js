@@ -4,10 +4,7 @@ import appPage from './pages/app/app-container'
 import homePage from './pages/home/home-container';
 import checkoutPage from './/pages/checkout/checkout-container'
 
-const MainRouter = (state,baseUrl) =>{
-    const isAuthenticate = () =>{
-        return true;
-    }
+const MainRouter = (state) =>{
 
     return(
         <Router>

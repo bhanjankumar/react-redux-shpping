@@ -1,14 +1,15 @@
 import React,{PureComponent} from 'react';
-import Header from '../../common/components/header';
+import Header from '../../common/header-container';
 import Footer from '../../common/components/footer'
 
 
 class AppComponent extends PureComponent{
 
+    
     render(){
         return(
             <div>
-                <Header/>
+                <Header />
                 {this.props.children}
                 <Footer/>
             </div>

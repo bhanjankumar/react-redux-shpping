@@ -6,8 +6,12 @@ import * as action from './checkout-action';
 
 const mapStateToProps = (state, currentProps) => {
     const addedCartData = state.home.addCartData;
+    const checkoutInput = state.home.order;
+    const addCartCheckData = state.home.addCartCheckData;
     return{
-        addedCartData
+        addedCartData,
+        checkoutInput,
+        addCartCheckData
     }
 }
 

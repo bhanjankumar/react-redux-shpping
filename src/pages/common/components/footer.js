@@ -2,10 +2,7 @@ import React,{PureComponent} from 'react';
 
 
 class FooterComponent extends PureComponent{
-    constructor(){
-        super();
-    }
-
+    
     render(){
         return(
             <div>

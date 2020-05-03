@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import React from 'react';
-import {Router,Route,IndexRoute,browserHistory} from 'react-router';
+import {Router,browserHistory} from 'react-router';
 import thunk from 'redux-thunk';
 import {createStore,applyMiddleware,compose} from 'redux';
 import mainReducer from './main-reducer';
@@ -24,18 +24,9 @@ let store = createStore(
 
 ReactDOM.render((
   <Provider store={store}>
-    <Router history={browserHistory} routes={appRoutes(store,'http://localhost:3000/')} />
+    <Router history={browserHistory} routes={appRoutes(store)} />
   </Provider>
 
 ), document.getElementById('root'));
 
-// ReactDOM.render((
-//   <Provider store={store}>
-//     <ConnectedRouter history={history}>
-//       <Switch>
-//         <Route path="/" component={App} />
-//       </Switch>
-//     </ConnectedRouter>
-//   </Provider>
 
-// ), document.getElementById('root'));
